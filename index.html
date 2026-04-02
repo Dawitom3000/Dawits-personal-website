@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dawit A. Feleke | Project Manager & Strategic Operator</title>
+  <meta
+    name="description"
+    content="A premium interactive personal portfolio for Dawit A. Feleke, project manager, entrepreneur, and strategic operator."
+  >
+  <meta name="theme-color" content="#070510">
+  <meta property="og:title" content="Dawit A. Feleke | Project Manager & Strategic Operator">
+  <meta
+    property="og:description"
+    content="Modern, animated personal portfolio featuring leadership, entrepreneurship, media strategy, and international project delivery."
+  >
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/images/salt-portrait.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+    rel="stylesheet"
+  >
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ["Inter", "sans-serif"],
+            display: ["Space Grotesk", "sans-serif"]
+          },
+          colors: {
+            night: "#070510",
+            electric: "#6d5efc",
+            cyan: "#31d7ff",
+            panel: "rgba(15, 18, 36, 0.58)"
+          },
+          boxShadow: {
+            glow: "0 0 0 1px rgba(255,255,255,0.08), 0 20px 80px rgba(27, 34, 92, 0.35)",
+            neon: "0 10px 40px rgba(49, 215, 255, 0.18)"
+          },
+          backgroundImage: {
+            mesh:
+              "radial-gradient(circle at 20% 20%, rgba(109, 94, 252, 0.20), transparent 28%), radial-gradient(circle at 80% 10%, rgba(49, 215, 255, 0.20), transparent 24%), radial-gradient(circle at 50% 90%, rgba(163, 99, 255, 0.16), transparent 24%)"
+          },
+          keyframes: {
+            floaty: {
+              "0%, 100%": { transform: "translateY(0px)" },
+              "50%": { transform: "translateY(-12px)" }
+            },
+            pulseSlow: {
+              "0%, 100%": { opacity: "0.45", transform: "scale(1)" },
+              "50%": { opacity: "0.8", transform: "scale(1.08)" }
+            },
+            slideUp: {
+              "0%": { opacity: "0", transform: "translateY(20px)" },
+              "100%": { opacity: "1", transform: "translateY(0)" }
+            }
+          },
+          animation: {
+            floaty: "floaty 6s ease-in-out infinite",
+            "pulse-slow": "pulseSlow 8s ease-in-out infinite",
+            "slide-up": "slideUp 700ms ease forwards"
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    body {
+      font-family: Inter, sans-serif;
+      background:
+        radial-gradient(circle at top, rgba(69, 54, 171, 0.18), transparent 30%),
+        linear-gradient(180deg, #05030c 0%, #090712 45%, #070510 100%);
+    }
+
+    .glass {
+      background: rgba(13, 16, 31, 0.56);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.03), 0 24px 80px rgba(0, 0, 0, 0.35);
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg, #f5f7ff 0%, #96a5ff 45%, #31d7ff 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-grid::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: linear-gradient(180deg, rgba(255,255,255,0.7), transparent 85%);
+      opacity: 0.28;
+      pointer-events: none;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 700ms ease, transform 700ms ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .project-card img {
+      transition: transform 700ms ease;
+    }
+
+    .project-card:hover img {
+      transform: scale(1.06);
+    }
+
+    .parallax {
+      will-change: transform;
+    }
+
+    .typing-cursor::after {
+      content: "|";
+      margin-left: 0.12em;
+      color: #31d7ff;
+      animation: blink 1s steps(1) infinite;
+    }
+
+    @keyframes blink {
+      50% {
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body class="overflow-x-hidden text-white selection:bg-cyan/30 selection:text-white">
+  <div
+    id="loader"
+    class="fixed inset-0 z-[100] flex items-center justify-center bg-[#05030c] transition duration-700"
+    aria-hidden="true"
+  >
+    <div class="flex flex-col items-center gap-5">
+      <div class="relative h-20 w-20">
+        <span class="absolute inset-0 rounded-full border border-white/10"></span>
+        <span class="absolute inset-2 rounded-full border border-cyan/50 animate-pulse-slow"></span>
+        <span class="absolute inset-4 rounded-full bg-gradient-to-br from-electric to-cyan blur-md opacity-70"></span>
+      </div>
+      <p class="font-display text-sm uppercase tracking-[0.45em] text-white/60">Loading Portfolio</p>
+    </div>
+  </div>
+
+  <div class="fixed inset-0 -z-10 bg-mesh"></div>
+  <div class="pointer-events-none fixed inset-0 -z-10 opacity-40">
+    <div class="absolute left-[12%] top-[18%] h-72 w-72 rounded-full bg-electric/20 blur-3xl"></div>
+    <div class="absolute bottom-[10%] right-[8%] h-80 w-80 rounded-full bg-cyan/15 blur-3xl"></div>
+  </div>
+
+  <header class="sticky top-0 z-50">
+    <div class="mx-auto mt-4 flex w-[min(1200px,calc(100%-1.5rem))] items-center justify-between rounded-full border border-white/10 bg-white/5 px-5 py-3 backdrop-blur-xl">
+      <a href="#home" class="font-display text-sm font-bold uppercase tracking-[0.3em] text-white/90">Dawit</a>
+      <nav class="hidden items-center gap-6 text-sm text-white/70 md:flex">
+        <a href="#about" class="transition hover:text-white">About</a>
+        <a href="#projects" class="transition hover:text-white">Projects</a>
+        <a href="#skills" class="transition hover:text-white">Skills</a>
+        <a href="#experience" class="transition hover:text-white">Experience</a>
+        <a href="#contact" class="transition hover:text-white">Contact</a>
+      </nav>
+      <a
+        href="assets/Dawit-A-Feleke-Portfolio.pdf"
+        class="rounded-full border border-cyan/40 bg-cyan/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-cyan transition hover:bg-cyan/20"
+      >Portfolio PDF</a>
+    </div>
+  </header>
+
+  <main id="home">
+    <section class="relative isolate min-h-screen overflow-hidden">
+      <div class="hero-grid absolute inset-0"></div>
+      <div class="mx-auto grid min-h-screen w-[min(1200px,calc(100%-1.5rem))] items-center gap-10 py-24 lg:grid-cols-[1.15fr_0.85fr]">
+        <div class="reveal">
+          <p class="mb-5 inline-flex rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-medium uppercase tracking-[0.3em] text-white/60">
+            Project Manager / Entrepreneur / Strategic Operator
+          </p>
+          <h1 class="font-display text-5xl font-bold leading-[0.95] sm:text-6xl lg:text-8xl">
+            Leading <span class="gradient-text">ambitious ideas</span> from concept to execution
+            across industries, teams, and borders.
+          </h1>
+          <div class="mt-6 text-lg text-white/70 sm:text-xl">
+            <span>I am a </span>
+            <span id="typing-text" class="typing-cursor font-semibold text-cyan"></span>
+          </div>
+          <p class="mt-8 max-w-2xl text-base leading-8 text-white/65 sm:text-lg">
+            Dawit A. Feleke is a project manager, entrepreneur, and strategic leader known for
+            turning complex ideas into structured, high-impact results across international,
+            creative, and business environments.
+          </p>
+          <div class="mt-10 flex flex-wrap gap-4">
+            <a
+              href="#projects"
+              class="rounded-full bg-gradient-to-r from-electric to-cyan px-6 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-slate-950 shadow-neon transition hover:-translate-y-0.5"
+            >View Work</a>
+            <a
+              href="#contact"
+              class="rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-white transition hover:border-cyan/50 hover:bg-white/10"
+            >Contact Me</a>
+          </div>
+          <div class="mt-12 grid gap-4 sm:grid-cols-3">
+            <div class="glass rounded-3xl p-5">
+              <p class="text-3xl font-bold text-white">05</p>
+              <p class="mt-2 text-sm uppercase tracking-[0.24em] text-white/50">Strategic Initiatives</p>
+            </div>
+            <div class="glass rounded-3xl p-5">
+              <p class="text-3xl font-bold text-white">03</p>
+              <p class="mt-2 text-sm uppercase tracking-[0.24em] text-white/50">Core Strengths</p>
+            </div>
+            <div class="glass rounded-3xl p-5">
+              <p class="text-3xl font-bold text-white">Global</p>
+              <p class="mt-2 text-sm uppercase tracking-[0.24em] text-white/50">Execution Mindset</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative reveal lg:pl-8">
+          <div class="parallax relative mx-auto max-w-[520px]" data-speed="0.08">
+            <div class="absolute -left-6 top-8 hidden h-28 w-28 rounded-3xl border border-cyan/30 bg-cyan/10 blur-sm lg:block"></div>
+            <div class="absolute -right-6 bottom-10 hidden h-24 w-24 rounded-full bg-electric/30 blur-2xl lg:block"></div>
+            <div class="glass relative overflow-hidden rounded-[2rem] p-3 shadow-glow">
+              <img
+                src="assets/images/salt-portrait.png"
+                alt="Portrait of Dawit on a salt flat"
+                class="h-[600px] w-full rounded-[1.5rem] object-cover object-center"
+              >
+            </div>
+            <div class="glass absolute -bottom-8 -left-5 max-w-xs rounded-[1.75rem] p-3 shadow-glow sm:-left-10">
+              <img
+                src="assets/images/cathedral-portrait.jpeg"
+                alt="Dawit in front of the Berlin cathedral"
+                class="h-44 w-56 rounded-[1.25rem] object-cover"
+              >
+            </div>
+            <div class="glass absolute -right-4 top-10 rounded-[1.75rem] px-4 py-3 text-right shadow-glow">
+              <p class="text-xs uppercase tracking-[0.3em] text-white/45">Operating Principle</p>
+              <p class="mt-2 font-display text-xl text-white">Build clarity,<br>align people, deliver results.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="mx-auto w-[min(1200px,calc(100%-1.5rem))] py-24">
+      <div class="mb-14 reveal flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+        <div>
+          <p class="mb-4 text-xs font-semibold uppercase tracking-[0.35em] text-cyan/80">About Me</p>
+          <h2 class="font-display text-4xl font-bold sm:text-5xl">A leadership profile shaped by strategy, execution, and range.</h2>
+        </div>
+        <p class="max-w-2xl text-base leading-8 text-white/60">
+          Dawit operates at the intersection of strategy, operations, and creative leadership, with
+          a track record of building structure where none exists and delivering under pressure.
+        </p>
+      </div>
+
+      <div class="grid gap-6 lg:grid-cols-[0.85fr_1.15fr]">
+        <div class="glass reveal overflow-hidden rounded-[2rem] p-3">
+          <img
+            src="assets/images/ship-portrait.jpeg"
+            alt="Profile portrait on a ship"
+            class="h-full min-h-[440px] w-full rounded-[1.5rem] object-cover"
+          >
+        </div>
+
+        <div class="grid gap-6">
+          <div class="glass reveal rounded-[2rem] p-8">
+            <h3 class="font-display text-2xl font-bold text-white">About Dawit</h3>
+            <p class="mt-4 leading-8 text-white/65">
+              Dawit A. Feleke is an Ethiopian project manager, entrepreneur, and creative leader who
+              specializes in turning complex, undefined ideas into structured, high-impact results.
+            </p>
+            <p class="mt-4 leading-8 text-white/65">
+              Dawit works at the intersection of strategy, execution, and creativity. With
+              experience spanning international education, media production, youth sports, and
+              entrepreneurship, he has consistently taken on environments where systems do not exist
+              and built them from the ground up. From leading multicultural teams in Europe without
+              a shared language to building a profitable travel consultancy from scratch and
+              professionalizing a fast-moving music label, his strength lies in simplifying
+              complexity and delivering results under pressure. He is comfortable owning the full
+              chain from planning and budgeting to execution and final delivery while keeping teams
+              aligned and focused.
+            </p>
+          </div>
+
+          <div class="grid gap-6 md:grid-cols-3">
+            <div class="glass reveal rounded-[1.75rem] p-6">
+              <div class="mb-4 text-3xl">01</div>
+              <h3 class="font-semibold text-white">Strategic Project Leadership</h3>
+              <p class="mt-2 text-sm leading-7 text-white/55">Driving clarity, accountability, and delivery across complex initiatives.</p>
+            </div>
+            <div class="glass reveal rounded-[1.75rem] p-6">
+              <div class="mb-4 text-3xl">02</div>
+              <h3 class="font-semibold text-white">Creative Direction & Content Systems</h3>
+              <p class="mt-2 text-sm leading-7 text-white/55">Building systems that improve output quality, speed, and consistency.</p>
+            </div>
+            <div class="glass reveal rounded-[1.75rem] p-6">
+              <div class="mb-4 text-3xl">03</div>
+              <h3 class="font-semibold text-white">Cross-Cultural Team Management</h3>
+              <p class="mt-2 text-sm leading-7 text-white/55">Leading people across different environments, expectations, and borders.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="mx-auto w-[min(1200px,calc(100%-1.5rem))] py-24">
+      <div class="mb-12 flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+        <div class="reveal">
+          <p class="mb-4 text-xs font-semibold uppercase tracking-[0.35em] text-cyan/80">Projects / Portfolio</p>
+          <h2 class="font-display text-4xl font-bold sm:text-5xl">Selected initiatives shaped by leadership, systems, and execution.</h2>
+        </div>
+        <div class="reveal flex flex-wrap gap-3" id="project-filters">
+          <button class="filter-btn rounded-full border border-cyan/40 bg-cyan/15 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-cyan" data-filter="all">All</button>
+          <button class="filter-btn rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-white/70" data-filter="international">International</button>
+          <button class="filter-btn rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-white/70" data-filter="media">Media</button>
+          <button class="filter-btn rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-white/70" data-filter="business">Business</button>
+          <button class="filter-btn rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-white/70" data-filter="leadership">Leadership</button>
+        </div>
+      </div>
+
+      <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+        <article class="project-card glass reveal overflow-hidden rounded-[2rem]" data-category="international">
+          <div class="overflow-hidden">
+            <img src="assets/images/lava-field.png" alt="Community health outreach program" class="h-72 w-full object-cover">
+          </div>
+          <div class="p-6">
+            <div class="flex items-center justify-between gap-3">
+              <h3 class="font-display text-2xl font-bold">Community Health Outreach Program</h3>
+              <span class="rounded-full border border-white/10 px-3 py-1 text-[10px] uppercase tracking-[0.25em] text-white/50">International</span>
+            </div>
+            <p class="mt-4 text-sm leading-7 text-white/60">
+              Led a multicultural team in Poland to deliver a community health outreach program,
+              coordinating workshops, logistics, and communication across language barriers.
+            </p>
+            <div class="mt-5 flex flex-wrap gap-2 text-xs text-white/55">
+              <span class="rounded-full bg-white/5 px-3 py-1">Project Planning</span>
+              <span class="rounded-full bg-white/5 px-3 py-1">Communication</span>
+              <span class="rounded-full bg-white/5 px-3 py-1">Field Coordination</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card glass reveal overflow-hidden rounded-[2rem]" data-category="media">
+          <div class="overflow-hidden">
+            <img src="assets/images/salt-portrait.png" alt="Afar documentary project" class="h-72 w-full object-cover">
+          </div>
+          <div class="p-6">
+            <div class="flex items-center justify-between gap-3">
+              <h3 class="font-display text-2xl font-bold">Afar Documentary Project</h3>
+              <span class="rounded-full border border-white/10 px-3 py-1 text-[10px] uppercase tracking-[0.25em] text-white/50">Media</span>
+            </div>
+            <p class="mt-4 text-sm leading-7 text-white/60">
+              Directed and managed a high-impact documentary production in extreme field conditions,
+              showcasing culture and tourism in remote Ethiopia.
+            </p>
+            <div class="mt-5 flex flex-wrap gap-2 text-xs text-white/55">
+              <span class="rounded-full bg-white/5 px-3 py-1">Videography</span>
+              <span class="rounded-full bg-white/5 px-3 py-1">Creative Direction</span>
+              <span class="rounded-full bg-white/5 px-3 py-1">Logistics Planning</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card glass reveal overflow-hidden rounded-[2rem]" data-category="media">
+          <div class="overflow-hidden">
+            <img src="assets/images/cathedral-wide.jpeg" alt="Bana Records transformation" class="h-72 w-full object-cover">
+          </div>
+          <div class="p-6">
+            <div class="flex items-center justify-between gap-3">
+              <h3 class="font-display text-2xl font-bold">Bana Records Transformation</h3>
+              <span class="rounded-full border border-white/10 px-3 py-1 text-[10px] uppercase tracking-[0.25em] text-white/50">Media</span>
+            </div>
+            <p class="mt-4 text-sm leading-7 text-white/60">
+              Transformed an inconsistent music label into a structured, deadline-driven content
+              operation with improved quality and global reach.
+            </p>
+            <div class="mt-5 flex flex-wrap gap-2 text-xs text-white/55">
+              <span class="rounded-full bg-white/5 px-3 py-1">Content Strategy</span>
+              <span class="rounded-full bg-white/5 px-3 py-1">Workflow Systems</span>
+              <span class="rounded-full bg-white/5 px-3 py-1">Team Leadership</span>
+            </div>
+            <a href="http://banarecords.com" class="mt-6 inline-flex text-sm font-semibold text-cyan">View project -></a>
+          </div>
+        </article>
+
+        <article class="project-card glass reveal overflow-hidden rounded-[2rem]" data-category="leadership">
+          <div class="overflow-hidden">
+            <img src="assets/images/professional-team.jpg" alt="Carlos Thornton sports programs" class="h-72 w-full object-cover">
+          </div>
+          <div class="p-6">
+            <div class="flex items-center justify-between gap-3">
+              <h3 class="font-display text-2xl font-bold">Carlos Thornton Sports Programs</h3>
+              <span class="rounded-full border border-white/10 px-3 py-1 text-[10px] uppercase tracking-[0.25em] text-white/50">Leadership</span>
+            </div>
+            <p class="mt-4 text-sm leading-7 text-white/60">
+              Lead partnerships, branding, and program delivery for Addis Ababa’s top international
+              basketball academy, turning ideas into fully funded programs.
+            </p>
+            <div class="mt-5 flex flex-wrap gap-2 text-xs text-white/55">
+              <span class="rounded-full bg-white/5 px-3 py-1">Project Management</span>
+              <span class="rounded-full bg-white/5 px-3 py-1">Partnerships</span>
+              <span class="rounded-full bg-white/5 px-3 py-1">Event Execution</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card glass reveal overflow-hidden rounded-[2rem]" data-category="business">
+          <div class="overflow-hidden">
+            <img src="assets/images/berlin-wall.jpg" alt="Headway Travel Firm" class="h-72 w-full object-cover">
+          </div>
+          <div class="p-6">
+            <div class="flex items-center justify-between gap-3">
+              <h3 class="font-display text-2xl font-bold">Headway Travel Firm</h3>
+              <span class="rounded-full border border-white/10 px-3 py-1 text-[10px] uppercase tracking-[0.25em] text-white/50">Business</span>
+            </div>
+            <p class="mt-4 text-sm leading-7 text-white/60">
+              Founded and scaled a profitable education and travel consultancy helping students
+              secure international university placements.
+            </p>
+            <div class="mt-5 flex flex-wrap gap-2 text-xs text-white/55">
+              <span class="rounded-full bg-white/5 px-3 py-1">Business Strategy</span>
+              <span class="rounded-full bg-white/5 px-3 py-1">Operations</span>
+              <span class="rounded-full bg-white/5 px-3 py-1">Client Management</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills" class="mx-auto w-[min(1200px,calc(100%-1.5rem))] py-24">
+      <div class="mb-12 reveal">
+        <p class="mb-4 text-xs font-semibold uppercase tracking-[0.35em] text-cyan/80">Skills</p>
+        <h2 class="font-display text-4xl font-bold sm:text-5xl">Capabilities rooted in leadership, communication, and delivery.</h2>
+      </div>
+
+      <div class="grid gap-6 lg:grid-cols-3">
+        <div class="glass reveal rounded-[2rem] p-8">
+          <h3 class="font-display text-2xl font-bold">Core Leadership</h3>
+          <div class="mt-6 space-y-5">
+            <div>
+              <div class="mb-2 flex items-center justify-between text-sm text-white/70"><span>Project Management</span><span>95%</span></div>
+              <div class="h-2 rounded-full bg-white/10"><div class="skill-bar h-2 rounded-full bg-gradient-to-r from-electric to-cyan" data-width="95"></div></div>
+            </div>
+            <div>
+              <div class="mb-2 flex items-center justify-between text-sm text-white/70"><span>Leadership</span><span>95%</span></div>
+              <div class="h-2 rounded-full bg-white/10"><div class="skill-bar h-2 rounded-full bg-gradient-to-r from-electric to-cyan" data-width="95"></div></div>
+            </div>
+            <div>
+              <div class="mb-2 flex items-center justify-between text-sm text-white/70"><span>Communication</span><span>95%</span></div>
+              <div class="h-2 rounded-full bg-white/10"><div class="skill-bar h-2 rounded-full bg-gradient-to-r from-electric to-cyan" data-width="95"></div></div>
+            </div>
+            <div>
+              <div class="mb-2 flex items-center justify-between text-sm text-white/70"><span>Strategic Planning</span><span>90%</span></div>
+              <div class="h-2 rounded-full bg-white/10"><div class="skill-bar h-2 rounded-full bg-gradient-to-r from-electric to-cyan" data-width="90"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass reveal rounded-[2rem] p-8">
+          <h3 class="font-display text-2xl font-bold">Creative Skills</h3>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <span class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/75">Videography & Photography — 90%</span>
+            <span class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/75">Content Creation — 90%</span>
+            <span class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/75">Editing (DaVinci, Adobe) — 85%</span>
+            <span class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/75">Creative Direction</span>
+            <span class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/75">Logistics Planning</span>
+            <span class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/75">Operations</span>
+          </div>
+        </div>
+
+        <div class="glass reveal rounded-[2rem] p-8">
+          <h3 class="font-display text-2xl font-bold">Tools</h3>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <span class="rounded-full border border-cyan/20 bg-cyan/10 px-4 py-2 text-sm text-cyan">Trello</span>
+            <span class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/75">Notion</span>
+            <span class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/75">Slack</span>
+            <span class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/75">Google Workspace</span>
+            <span class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/75">Adobe Suite</span>
+            <span class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/75">DaVinci Resolve</span>
+            <span class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/75">Dropbox</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="mx-auto w-[min(1200px,calc(100%-1.5rem))] py-24">
+      <div class="mb-12 reveal">
+        <p class="mb-4 text-xs font-semibold uppercase tracking-[0.35em] text-cyan/80">Experience</p>
+        <h2 class="font-display text-4xl font-bold sm:text-5xl">Experience shaped by ownership, systems building, and execution.</h2>
+      </div>
+
+      <div class="relative ml-3 border-l border-white/10 pl-8">
+        <article class="timeline-item reveal relative mb-10">
+          <span class="absolute -left-[2.55rem] top-1 h-4 w-4 rounded-full border border-cyan/50 bg-[#0c1025] shadow-neon"></span>
+          <p class="text-xs uppercase tracking-[0.28em] text-cyan/75">2024 – Present</p>
+          <h3 class="mt-3 font-display text-2xl font-bold">Special Project Manager</h3>
+          <p class="mt-2 text-sm uppercase tracking-[0.22em] text-white/40">Carlos Thornton Sports Enrichment Center</p>
+          <p class="mt-3 max-w-2xl leading-8 text-white/60">
+            Lead partnerships, branding, and program execution. Manage international stakeholders,
+            including schools and NBA Africa, and deliver fully funded, large-scale youth programs.
+          </p>
+        </article>
+
+        <article class="timeline-item reveal relative mb-10">
+          <span class="absolute -left-[2.55rem] top-1 h-4 w-4 rounded-full border border-cyan/50 bg-[#0c1025] shadow-neon"></span>
+          <p class="text-xs uppercase tracking-[0.28em] text-cyan/75">2023 – 2025</p>
+          <h3 class="mt-3 font-display text-2xl font-bold">Content & Communications Head</h3>
+          <p class="mt-2 text-sm uppercase tracking-[0.22em] text-white/40">Bana Records</p>
+          <p class="mt-3 max-w-2xl leading-8 text-white/60">
+            Built structured content systems, led creative teams and production, and elevated brand
+            quality to a more international standard.
+          </p>
+        </article>
+
+        <article class="timeline-item reveal relative">
+          <span class="absolute -left-[2.55rem] top-1 h-4 w-4 rounded-full border border-cyan/50 bg-[#0c1025] shadow-neon"></span>
+          <p class="text-xs uppercase tracking-[0.28em] text-cyan/75">2021 – Present</p>
+          <h3 class="mt-3 font-display text-2xl font-bold">Founder & Business Owner</h3>
+          <p class="mt-2 text-sm uppercase tracking-[0.22em] text-white/40">Headway Travel Firm</p>
+          <p class="mt-3 max-w-2xl leading-8 text-white/60">
+            Built the company from zero to profitable, delivered 100+ student placements, and
+            managed full operations and the entire client lifecycle.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="mx-auto w-[min(1200px,calc(100%-1.5rem))] py-24">
+      <div class="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
+        <div class="glass reveal rounded-[2rem] p-8">
+          <p class="mb-4 text-xs font-semibold uppercase tracking-[0.35em] text-cyan/80">Contact</p>
+          <h2 class="font-display text-4xl font-bold">Let’s build something meaningful.</h2>
+          <p class="mt-5 max-w-xl leading-8 text-white/60">
+            Open to collaborations and high-impact projects across leadership, entrepreneurship,
+            creative systems, partnerships, and international program delivery.
+          </p>
+
+          <div class="mt-10 space-y-4 text-sm text-white/60">
+            <p>Email: <span class="text-white">felekedawit11@icloud.com</span></p>
+            <p>Location: <span class="text-white">Addis Ababa, Ethiopia</span></p>
+            <p>Availability: <span class="text-white">Open to collaborations and high-impact projects</span></p>
+          </div>
+
+          <div class="mt-10 flex gap-3">
+            <a href="mailto:felekedawit11@icloud.com" class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/70 transition hover:border-cyan/40 hover:text-cyan">Email</a>
+            <a href="https://www.instagram.com/dawits_memorylane?igsh=MXI1dmNyaHczMDJhcw%3D%3D&utm_source=qr" class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/70 transition hover:border-cyan/40 hover:text-cyan">Instagram</a>
+          </div>
+        </div>
+
+        <form class="glass reveal rounded-[2rem] p-8">
+          <div class="grid gap-5 sm:grid-cols-2">
+            <label class="block">
+              <span class="mb-2 block text-sm text-white/55">Name</span>
+              <input type="text" placeholder="Your name" class="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-4 text-white outline-none transition placeholder:text-white/25 focus:border-cyan/40">
+            </label>
+            <label class="block">
+              <span class="mb-2 block text-sm text-white/55">Email</span>
+              <input type="email" placeholder="you@example.com" class="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-4 text-white outline-none transition placeholder:text-white/25 focus:border-cyan/40">
+            </label>
+          </div>
+          <label class="mt-5 block">
+            <span class="mb-2 block text-sm text-white/55">Message</span>
+            <textarea rows="6" placeholder="Tell me about your project..." class="w-full rounded-[1.5rem] border border-white/10 bg-white/5 px-4 py-4 text-white outline-none transition placeholder:text-white/25 focus:border-cyan/40"></textarea>
+          </label>
+          <button type="submit" class="mt-6 rounded-full bg-gradient-to-r from-electric to-cyan px-6 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-slate-950 shadow-neon transition hover:-translate-y-0.5">
+            Send Message
+          </button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="mx-auto w-[min(1200px,calc(100%-1.5rem))] border-t border-white/10 py-10">
+    <div class="flex flex-col gap-3 text-sm text-white/45 sm:flex-row sm:items-center sm:justify-between">
+      <p>© 2026 Dawit A. Feleke</p>
+      <p>Build. Lead. Deliver.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
