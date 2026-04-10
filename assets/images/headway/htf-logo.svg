@@ -1,0 +1,59 @@
+<svg width="1400" height="1000" viewBox="0 0 1400 1000" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Headway Travel Firm logo</title>
+  <desc id="desc">A refined HTF monogram with a travel route motif and editorial wordmark.</desc>
+  <defs>
+    <linearGradient id="bg" x1="200" y1="80" x2="1200" y2="920" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFDF9"/>
+      <stop offset="1" stop-color="#F4EEE5"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="360" y1="240" x2="900" y2="760" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF5A4E"/>
+      <stop offset="1" stop-color="#FF8A3D"/>
+    </linearGradient>
+    <filter id="shadow" x="120" y="80" width="1160" height="840" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feOffset dy="18"/>
+      <feGaussianBlur stdDeviation="24"/>
+      <feColorMatrix values="0 0 0 0 0.10  0 0 0 0 0.14  0 0 0 0 0.22  0 0 0 0.12 0"/>
+    </filter>
+  </defs>
+
+  <rect x="48" y="48" width="1304" height="904" rx="54" fill="url(#bg)"/>
+  <rect x="48" y="48" width="1304" height="904" rx="54" stroke="rgba(17, 24, 39, 0.08)" stroke-width="2"/>
+
+  <g filter="url(#shadow)">
+    <circle cx="700" cy="390" r="190" fill="url(#accent)"/>
+  </g>
+
+  <path d="M548 395C599 342 660 316 720 318C780 320 839 350 892 408" stroke="#FFFDF9" stroke-width="18" stroke-linecap="round"/>
+  <path d="M592 438C638 402 674 388 714 392C760 398 809 431 858 494" stroke="#FFFDF9" stroke-width="18" stroke-linecap="round" opacity="0.92"/>
+  <path d="M648 322C668 336 684 360 692 388C701 421 704 460 700 508" stroke="#FFFDF9" stroke-width="18" stroke-linecap="round"/>
+  <path d="M700 508L673 478L704 468L734 477Z" fill="#FFFDF9"/>
+  <path d="M760 255L818 215L862 260L914 228" stroke="#2A3142" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="914" cy="228" r="7" fill="#2A3142"/>
+
+  <text x="112" y="176" fill="#1F2937" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700" letter-spacing="8">HEADWAY TRAVEL FIRM</text>
+  <text x="112" y="300" fill="#111827" font-family="Cormorant Garamond, Georgia, serif" font-size="118" font-weight="600" letter-spacing="2">HTF</text>
+  <text x="112" y="364" fill="#EF5A4D" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700" letter-spacing="6">GLOBAL MOBILITY / PLACEMENT / CONSULTANCY</text>
+
+  <rect x="112" y="438" width="440" height="138" rx="28" fill="rgba(255,255,255,0.55)" stroke="rgba(17,24,39,0.08)"/>
+  <text x="150" y="496" fill="#374151" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="500">Education and travel consultancy</text>
+  <text x="150" y="542" fill="#374151" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="500">built for clarity and trust.</text>
+
+  <g transform="translate(112 640)">
+    <rect width="176" height="84" rx="24" fill="#FFFFFF" fill-opacity="0.75" stroke="rgba(17,24,39,0.08)"/>
+    <text x="88" y="52" text-anchor="middle" fill="#111827" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="5">EDUCATION</text>
+  </g>
+  <g transform="translate(308 640)">
+    <rect width="176" height="84" rx="24" fill="#FFFFFF" fill-opacity="0.75" stroke="rgba(17,24,39,0.08)"/>
+    <text x="88" y="52" text-anchor="middle" fill="#111827" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="5">MOBILITY</text>
+  </g>
+  <g transform="translate(504 640)">
+    <rect width="176" height="84" rx="24" fill="#FFFFFF" fill-opacity="0.75" stroke="rgba(17,24,39,0.08)"/>
+    <text x="88" y="52" text-anchor="middle" fill="#111827" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="5">CONSULTANCY</text>
+  </g>
+
+  <path d="M860 696C960 630 1044 600 1140 600" stroke="#7E8AA7" stroke-width="10" stroke-linecap="round" stroke-dasharray="2 22"/>
+  <path d="M860 696C960 630 1044 600 1140 600" stroke="#2A3142" stroke-width="2" stroke-linecap="round" opacity="0.22"/>
+  <circle cx="860" cy="696" r="16" fill="#EF5A4D"/>
+  <circle cx="1140" cy="600" r="16" fill="#2A3142"/>
+</svg>

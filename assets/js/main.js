@@ -1,15 +1,24 @@
+/* ======================================================
+   Magnetto-Style Portfolio — Main JS
+   ====================================================== */
+
+// DOM References
 const loader = document.getElementById("loader");
 const typingText = document.getElementById("typing-text");
 const revealItems = document.querySelectorAll(".reveal");
-const parallaxItems = document.querySelectorAll(".parallax");
-const skillBars = document.querySelectorAll(".skill-bar");
+const skillBars = document.querySelectorAll(".skill-fill");
 const filterButtons = document.querySelectorAll(".filter-btn");
 const projectCards = document.querySelectorAll(".project-card");
+const skillsSection = document.getElementById("skills");
+const dockLinks = document.querySelectorAll(".dock-link");
+const dockMenuToggle = document.getElementById("dock-menu-toggle");
+const dockLinksContainer = document.getElementById("dock-links");
 
+// Typing animation titles
 const rotatingTitles = [
   "project manager",
   "entrepreneur",
-  "strategic operator",
+  "creative strategist",
   "systems builder",
   "problem solver"
 ];
@@ -18,7 +27,10 @@ let currentTitle = 0;
 let currentChar = 0;
 let deleting = false;
 
+// ---------- Typing Animation ----------
 function typeLoop() {
+  if (!typingText) return;
+
   const phrase = rotatingTitles[currentTitle];
 
   if (!deleting) {
@@ -43,40 +55,40 @@ function typeLoop() {
   setTimeout(typeLoop, deleting ? 45 : 85);
 }
 
+// ---------- Loader ----------
 window.addEventListener("load", () => {
   setTimeout(() => {
-    loader.classList.add("opacity-0", "pointer-events-none");
-  }, 450);
+    if (loader) loader.classList.add("hidden");
+  }, 600);
+
+  if (typingText) typeLoop();
 });
 
+// ---------- Reveal on Scroll ----------
 const revealObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
-      if (!entry.isIntersecting) {
-        return;
-      }
-
+      if (!entry.isIntersecting) return;
       entry.target.classList.add("visible");
       revealObserver.unobserve(entry.target);
     });
   },
   {
-    threshold: 0.15,
-    rootMargin: "0px 0px -60px 0px"
+    threshold: 0.08,
+    rootMargin: "0px 0px -20px 0px"
   }
 );
 
 revealItems.forEach((item, index) => {
-  item.style.transitionDelay = `${Math.min(index * 50, 300)}ms`;
+  item.style.transitionDelay = `${Math.min(index * 30, 250)}ms`;
   revealObserver.observe(item);
 });
 
+// ---------- Skill Bars Animation ----------
 const skillsObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
-      if (!entry.isIntersecting) {
-        return;
-      }
+      if (!entry.isIntersecting) return;
 
       skillBars.forEach((bar) => {
         bar.style.width = `${bar.dataset.width}%`;
@@ -85,52 +97,120 @@ const skillsObserver = new IntersectionObserver(
       skillsObserver.disconnect();
     });
   },
-  { threshold: 0.25 }
+  { threshold: 0.3 }
 );
 
 skillBars.forEach((bar) => {
   bar.style.width = "0%";
-  bar.style.transition = "width 1200ms cubic-bezier(0.22, 1, 0.36, 1)";
+  bar.style.transition = "width 1.2s cubic-bezier(0.22, 1, 0.36, 1)";
 });
 
-const skillsSection = document.getElementById("skills");
 if (skillsSection) {
   skillsObserver.observe(skillsSection);
 }
 
-window.addEventListener("scroll", () => {
-  const scrolled = window.scrollY;
-
-  parallaxItems.forEach((item) => {
-    const speed = Number(item.dataset.speed || 0.08);
-    item.style.transform = `translate3d(0, ${scrolled * speed}px, 0)`;
-  });
-});
-
+// ---------- Project Filters ----------
 filterButtons.forEach((button) => {
   button.addEventListener("click", () => {
     const filter = button.dataset.filter;
 
     filterButtons.forEach((btn) => {
-      btn.className =
-        "filter-btn rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-white/70";
+      btn.classList.toggle("active", btn === button);
     });
 
-    button.className =
-      "filter-btn rounded-full border border-cyan/40 bg-cyan/15 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-cyan";
-
     projectCards.forEach((card) => {
-      const category = card.dataset.category;
-      const matches = filter === "all" || filter === category;
-
-      card.style.display = matches ? "block" : "none";
+      const matches = filter === "all" || card.dataset.category === filter;
+      card.style.display = matches ? "" : "none";
     });
   });
 });
 
-document.querySelector("form")?.addEventListener("submit", (event) => {
-  event.preventDefault();
-  alert("This contact form is currently a front-end placeholder. I can connect it to email delivery if you want.");
-});
+// ---------- Bottom Dock: Active Link Tracking ----------
+const sections = document.querySelectorAll("section[id]");
 
-typeLoop();
+const sectionObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+
+      const id = entry.target.id;
+      dockLinks.forEach((link) => {
+        const href = link.getAttribute("href").replace("#", "");
+        link.classList.toggle("active", href === id);
+      });
+    });
+  },
+  {
+    threshold: 0.3,
+    rootMargin: "-10% 0px -40% 0px"
+  }
+);
+
+sections.forEach((section) => sectionObserver.observe(section));
+
+// ---------- Mobile Menu Toggle ----------
+if (dockMenuToggle && dockLinksContainer) {
+  dockMenuToggle.addEventListener("click", () => {
+    const isOpen = dockLinksContainer.classList.contains("open");
+    dockLinksContainer.classList.toggle("open");
+    dockMenuToggle.setAttribute("aria-expanded", String(!isOpen));
+  });
+
+  // Close menu on link click
+  dockLinksContainer.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      dockLinksContainer.classList.remove("open");
+      dockMenuToggle.setAttribute("aria-expanded", "false");
+    });
+  });
+}
+
+// ---------- Contact Form AJAX ----------
+const contactForm = document.getElementById("contact-form");
+const formStatus = document.getElementById("form-status");
+
+if (contactForm && formStatus) {
+  contactForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    const submitBtn = contactForm.querySelector('button[type="submit"]');
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Sending...";
+    formStatus.textContent = "";
+
+    try {
+      const formData = new FormData(contactForm);
+      const response = await fetch(contactForm.action, {
+        method: "POST",
+        body: formData
+      });
+      const result = await response.json();
+
+      if (result.success) {
+        formStatus.textContent = "Message sent successfully! I'll get back to you soon.";
+        formStatus.style.color = "#34d399";
+        contactForm.reset();
+      } else {
+        formStatus.textContent = result.message || "Something went wrong. Please try again.";
+        formStatus.style.color = "#f87171";
+      }
+    } catch (error) {
+      formStatus.textContent = "Network error. Please check your connection and try again.";
+      formStatus.style.color = "#f87171";
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Send Message →";
+    }
+  });
+}
+
+// ---------- Smooth Scroll for Dock Links ----------
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  anchor.addEventListener("click", (e) => {
+    const target = document.querySelector(anchor.getAttribute("href"));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  });
+});
