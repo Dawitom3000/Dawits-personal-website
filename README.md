@@ -1,90 +1,56 @@
-# Personal Portfolio Website
+# Dawit Feleke | Project Manager Portfolio
 
-A modern editorial personal portfolio for Dawit A. Feleke, built with:
+A single-page personal site positioning Dawit Feleke for project management roles in tech,
+operations, and cross-functional delivery. The site retains a smaller creative-work portfolio
+near the bottom of the page.
 
-- HTML
-- Tailwind CSS via CDN
+## Stack
+
+- Semantic HTML5
+- Custom responsive CSS
 - Vanilla JavaScript
+- No build step or framework
 
-## What Changed
+## Page structure
 
-- Light, premium editorial layout instead of a dark cyber style
-- Large typography and spacious visual hierarchy
-- More image-rich case studies across all categories
-- Carlos Thornton documentary featured in a modal video viewer
-- Headway Travel Firm represented with a custom HTF brand mark
-- Smooth reveal animations, subtle parallax, and scroll progress
-- Sticky glass navigation with a mobile menu
-- Filterable project section
-- Animated skill bars
-- Modern contact form shell
+1. Product-editorial project management hero
+2. Animated career proof strip
+3. Four selected work case studies plus a digital build
+4. Professional profile and operating-method bento grid
+5. Sticky, reverse-chronological experience chapters
+6. Multidisciplinary operating toolkit
+7. Scroll-snap visual fieldwork gallery with lightbox
+8. Contact information
 
-## Folder Structure
+## Design
 
-```text
-.
-├── index.html
-├── README.md
-├── assets
-│   ├── Dawit-A-Feleke-Portfolio.pdf
-│   ├── images
-│   │   ├── afar
-│   │   ├── bana
-│   │   ├── carlos
-│   │   ├── community-outreach
-│   │   └── headway
-│   └── js
-│       └── main.js
-└── previews
-```
+- Deep teal `#1B5E63`, mint, warm paper, and near-black editorial surfaces
+- Manrope for interface text and Newsreader italic for editorial accents
+- Floating navigation with reading progress
+- Motion-enhanced hero, metric counters, sticky career activation, and image parallax
+- Responsive layouts for mobile, tablet, and desktop
+- Visible focus states, reduced-motion support, and descriptive image text
 
-## How To Run Locally
+## Run locally
 
-This is a static site, so you can open it in either of these ways:
-
-### Option 1: Open directly
-
-Open `index.html` in your browser.
-
-### Option 2: Use a local server
-
-If you want a nicer local workflow:
+Open `index.html` directly, or serve the folder:
 
 ```bash
-cd "/Users/Apple/Desktop/web development"
+cd "portfolio website"
 python3 -m http.server 8000
 ```
 
-Then open:
+Then visit `http://localhost:8000`.
+
+## Files
 
 ```text
-http://localhost:8000
+portfolio website/
+├── index.html
+├── style.css
+├── README.md
+└── assets/
+    ├── Dawit_Feleke_CV_Tech_PM.pdf
+    ├── js/main.js
+    └── images/
 ```
-
-## Easy Content Replacements
-
-Update these areas first:
-
-- `index.html`
-  - Hero title and typing phrases
-  - About section biography
-  - Project descriptions and links
-  - Experience timeline entries
-  - Contact details and socials
-  - LinkedIn URL placeholder block
-
-- `assets/images`
-  - Replace or add photos for any project case study
-  - Add a different Headway brand visual if you want a new style
-
-- `assets/js/main.js`
-  - Adjust typing text
-  - Change animation timing
-  - Connect the contact form to email delivery if you change the provider
-  - Update the Carlos documentary video URL if it changes
-
-## Notes
-
-- Tailwind is loaded through the CDN, so internet access is needed for the page styles to load in the browser.
-- The contact form now uses Web3Forms. Replace `YOUR_ACCESS_KEY_HERE` in `index.html` with your real access key.
-- The Carlos documentary opens in a modal using the Google Drive preview URL.
