@@ -15,7 +15,7 @@ near the bottom of the page.
 
 1. Product-editorial project management hero
 2. Animated career proof strip
-3. Four selected work case studies plus a digital build
+3. Six selected work case studies plus a digital build
 4. Professional profile and operating-method bento grid
 5. Sticky, reverse-chronological experience chapters
 6. Multidisciplinary operating toolkit
@@ -36,7 +36,7 @@ near the bottom of the page.
 Open `index.html` directly, or serve the folder:
 
 ```bash
-cd "portfolio website"
+cd "/path/to/Dawits-personal-website"
 python3 -m http.server 8000
 ```
 
@@ -45,7 +45,7 @@ Then visit `http://localhost:8000`.
 ## Files
 
 ```text
-portfolio website/
+Dawits-personal-website/
 ├── index.html
 ├── style.css
 ├── README.md
@@ -53,4 +53,5 @@ portfolio website/
     ├── Dawit_Feleke_CV_Tech_PM.pdf
     ├── js/main.js
     └── images/
+        └── project-screenshots/
 ```
