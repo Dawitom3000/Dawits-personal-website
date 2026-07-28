@@ -44,6 +44,13 @@ body.lightbox-open {
   overflow: hidden;
 }
 
+.icon-sprite {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
 img {
   display: block;
   max-width: 100%;
@@ -942,7 +949,7 @@ a {
   padding: 7px;
   background: rgba(255, 255, 255, 0.045);
   border: 1px solid rgba(255, 255, 255, 0.16);
-  border-radius: 999px;
+  border-radius: 21px;
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.07),
     0 18px 50px rgba(0, 0, 0, 0.16);
@@ -966,7 +973,7 @@ a {
   color: rgba(255, 255, 255, 0.78);
   background: rgba(255, 255, 255, 0.055);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 50%;
+  border-radius: 15px;
   place-items: center;
   text-decoration: none;
   transform: translateY(0);
@@ -978,30 +985,32 @@ a {
     transform 260ms var(--ease-out);
 }
 
+.social-icon-link::before {
+  position: absolute;
+  inset: 6px;
+  border: 1px solid currentColor;
+  border-radius: 11px;
+  content: "";
+  opacity: 0.12;
+  pointer-events: none;
+  transition: inset 260ms var(--ease-out), opacity 220ms ease;
+}
+
 .social-dock-project .social-icon-link {
   width: 46px;
   height: 46px;
 }
 
 .social-icon-link svg {
-  width: 22px;
-  height: 22px;
+  width: 20px;
+  height: 20px;
   overflow: visible;
-  fill: none;
-  stroke: currentColor;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-width: 1.7;
+  fill: currentColor;
 }
 
 .social-dock-project .social-icon-link svg {
-  width: 20px;
-  height: 20px;
-}
-
-.social-icon-link .social-icon-dot {
-  fill: currentColor;
-  stroke: none;
+  width: 18px;
+  height: 18px;
 }
 
 .social-icon-link::after {
@@ -1033,6 +1042,12 @@ a {
   border-color: var(--mint);
   box-shadow: 0 13px 34px rgba(0, 0, 0, 0.25);
   transform: translateY(-3px);
+}
+
+.social-icon-link:hover::before,
+.social-icon-link:focus-visible::before {
+  inset: 4px;
+  opacity: 0.22;
 }
 
 .social-icon-link:hover::after,
