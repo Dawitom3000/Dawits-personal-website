@@ -950,6 +950,7 @@ a {
 }
 
 .social-dock-project {
+  display: flex;
   margin-top: 28px;
 }
 
@@ -980,6 +981,10 @@ a {
 .social-dock-project .social-icon-link {
   width: 46px;
   height: 46px;
+}
+
+.case-study-pinnacle .social-icon-link {
+  color: var(--teal);
 }
 
 .social-icon-link svg {
