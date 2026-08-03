@@ -410,6 +410,15 @@ a {
   margin-top: 36px;
 }
 
+.document-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.document-actions .button {
+  padding-inline: 18px;
+}
+
 .button {
   display: inline-flex;
   min-height: 54px;
@@ -2595,10 +2604,22 @@ a {
   }
 
   .hero-actions,
-  .hero-actions .button,
   .contact-actions,
-  .contact-actions .button {
+  .hero-actions > .button,
+  .contact-actions > .button,
+  .document-actions {
     width: 100%;
+  }
+
+  .document-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .document-actions .button {
+    width: auto;
+    padding-inline: 12px;
+    justify-content: center;
   }
 
   .hero-disciplines {
