@@ -744,54 +744,148 @@ a {
   color: var(--mint);
 }
 
-.media-proof-grid {
+.bana-production-evidence {
   display: grid;
-  min-height: 720px;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
+  gap: 16px;
 }
 
-.media-proof-grid button {
+.bana-stills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.bana-still,
+.bana-planning-proof button {
   position: relative;
   overflow: hidden;
-  min-height: 350px;
   padding: 0;
   color: var(--white);
-  background: #15201f;
+  background: var(--ink-soft);
   border: 1px solid var(--line-light);
   cursor: zoom-in;
 }
 
-.media-proof-grid img {
+.bana-still-main,
+.bana-still-wide {
+  grid-column: 1 / -1;
+}
+
+.bana-still-main {
+  height: 350px;
+}
+
+.bana-still:not(.bana-still-main):not(.bana-still-wide) {
+  height: 225px;
+}
+
+.bana-still-wide {
+  height: 255px;
+}
+
+.bana-still img,
+.bana-planning-proof img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 50% 31%;
-  opacity: 0.82;
-  transform: scale(1.03);
-  transition: opacity 250ms ease, transform 550ms var(--ease-out);
+  transition: opacity 250ms ease, transform 650ms var(--ease-out);
 }
 
-.media-proof-grid button:hover img {
+.bana-still img {
+  opacity: 0.88;
+}
+
+.bana-still:hover img,
+.bana-planning-proof button:hover img {
   opacity: 1;
-  transform: scale(1.07);
+  transform: scale(1.035);
 }
 
-.media-proof-grid button > span {
+.bana-still > span {
   position: absolute;
-  right: 14px;
-  bottom: 14px;
-  left: 14px;
-  padding: 11px 13px;
+  right: 18px;
+  bottom: 18px;
+  left: 18px;
+  display: flex;
+  padding: 13px 15px;
   color: var(--white);
-  background: rgba(7, 24, 22, 0.82);
+  background: rgba(7, 24, 22, 0.78);
   border: 1px solid var(--line-light);
-  font-size: 10px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  backdrop-filter: blur(12px);
+}
+
+.bana-still > span small {
+  font-size: 8px;
   font-weight: 700;
-  letter-spacing: 0.07em;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.bana-still > span strong {
+  font-family: "Newsreader", Georgia, serif;
+  font-size: 20px;
+  font-style: italic;
+  font-weight: 500;
+}
+
+.bana-planning-proof {
+  display: grid;
+  padding-top: 16px;
+  border-top: 1px solid var(--line-light);
+  grid-template-columns: minmax(140px, 0.65fr) repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.bana-planning-heading {
+  display: flex;
+  padding: 8px 14px 8px 0;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.bana-planning-heading span {
+  color: var(--mint);
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.bana-planning-heading strong {
+  max-width: 150px;
+  font-family: "Newsreader", Georgia, serif;
+  font-size: 21px;
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+.bana-planning-proof button {
+  height: 150px;
+}
+
+.bana-planning-proof img {
+  opacity: 0.7;
+  object-position: 50% 28%;
+}
+
+.bana-planning-proof button > span {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  left: 8px;
+  padding: 8px 10px;
+  color: var(--white);
+  background: rgba(7, 24, 22, 0.84);
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
   text-align: left;
   text-transform: uppercase;
-  backdrop-filter: blur(12px);
 }
 
 .media-platform-links {
@@ -2168,14 +2262,9 @@ a {
   }
 
   .media-feature-visual,
-  .media-feature-visual > img,
-  .media-proof-grid {
+  .media-feature-visual > img {
     min-height: 600px;
     height: 600px;
-  }
-
-  .media-proof-grid button {
-    min-height: 294px;
   }
 
   .media-impact {
@@ -2336,11 +2425,6 @@ a {
   .media-feature-visual > img {
     min-height: 680px;
     height: 680px;
-  }
-
-  .media-proof-grid {
-    height: auto;
-    min-height: 680px;
   }
 
   .media-impact {
@@ -2576,13 +2660,39 @@ a {
     font-size: clamp(47px, 14vw, 67px);
   }
 
-  .media-proof-grid {
-    min-height: 0;
-    grid-template-columns: 1fr;
+  .bana-still-main {
+    height: 235px;
   }
 
-  .media-proof-grid button {
-    min-height: 290px;
+  .bana-still:not(.bana-still-main):not(.bana-still-wide) {
+    height: 170px;
+  }
+
+  .bana-still-wide {
+    height: 205px;
+  }
+
+  .bana-still > span {
+    right: 10px;
+    bottom: 10px;
+    left: 10px;
+  }
+
+  .bana-planning-proof {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .bana-planning-heading {
+    min-height: 110px;
+    grid-column: 1 / -1;
+  }
+
+  .bana-planning-heading strong {
+    max-width: none;
+  }
+
+  .bana-planning-proof button {
+    height: 135px;
   }
 
   .media-platform-links {
