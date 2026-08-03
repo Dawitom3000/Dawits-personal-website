@@ -481,7 +481,7 @@ a {
 
 .hero-visual {
   position: relative;
-  min-height: 650px;
+  min-height: 600px;
 }
 
 .portrait-frame {
@@ -490,8 +490,8 @@ a {
   top: 40px;
   right: 0;
   overflow: hidden;
-  width: min(100%, 470px);
-  height: 580px;
+  width: min(100%, 430px);
+  height: 535px;
   background: var(--teal);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 240px 240px 24px 24px;
@@ -2252,8 +2252,8 @@ a {
   }
 
   .portrait-frame {
-    width: 390px;
-    height: 540px;
+    width: 360px;
+    height: 500px;
   }
 
   .media-feature,
@@ -2380,16 +2380,17 @@ a {
   }
 
   .hero-visual {
-    width: min(100%, 660px);
-    min-height: 680px;
+    width: min(100%, 600px);
+    min-height: 590px;
     margin-inline: auto;
   }
 
   .portrait-frame {
-    right: 40px;
-    left: 40px;
-    width: auto;
-    height: 620px;
+    right: auto;
+    left: 50%;
+    width: min(calc(100% - 80px), 520px);
+    height: 540px;
+    transform: translateX(-50%);
   }
 
   .hero-foot {
@@ -2611,15 +2612,17 @@ a {
   }
 
   .hero-visual {
-    min-height: 610px;
+    min-height: 510px;
   }
 
   .portrait-frame {
     top: 20px;
-    right: 0;
-    left: 0;
-    height: 540px;
+    right: auto;
+    left: 50%;
+    width: calc(100% - 40px);
+    height: 455px;
     border-radius: 180px 180px 20px 20px;
+    transform: translateX(-50%);
   }
 
   .hero-foot {
