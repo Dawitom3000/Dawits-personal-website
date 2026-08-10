@@ -308,20 +308,21 @@ main {
   min-height: 980px;
   color: var(--white);
   background:
-    radial-gradient(circle at 82% 24%, rgba(43, 141, 130, 0.3), transparent 24%),
-    linear-gradient(145deg, #071816 0%, #0c2421 52%, #071816 100%);
+    radial-gradient(ellipse at 78% 18%, rgba(43, 141, 130, 0.3), transparent 38%),
+    radial-gradient(ellipse at 18% 82%, rgba(22, 75, 69, 0.42), transparent 46%),
+    #071816;
 }
 
 .hero-grid-lines,
 .contact-grid-lines {
   position: absolute;
   inset: 0;
-  opacity: 0.28;
+  opacity: 0.1;
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
-  background-size: 104px 104px;
+    url("assets/images/organic-grain.svg");
+  background-size: 180px 180px;
   mask-image: linear-gradient(to bottom, black 0%, transparent 92%);
+  pointer-events: none;
 }
 
 .hero-orb {
@@ -662,11 +663,9 @@ main {
   overflow: hidden;
   color: var(--white);
   background:
-    radial-gradient(circle at 12% 8%, rgba(43, 141, 130, 0.13), transparent 25%),
-    linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px),
-    var(--ink);
-  background-size: auto, 96px 96px, 96px 96px, auto;
+    radial-gradient(ellipse at 8% 8%, rgba(43, 141, 130, 0.2), transparent 30%),
+    radial-gradient(ellipse at 92% 54%, rgba(18, 67, 61, 0.28), transparent 34%),
+    linear-gradient(160deg, #071816 0%, #091d1b 48%, #061412 100%);
 }
 
 .media-production-section .section-intro-light h2 {
@@ -2075,13 +2074,15 @@ main {
   padding-block: clamp(110px, 12vw, 170px);
   color: var(--white);
   background:
-    radial-gradient(circle at 80% 24%, rgba(43, 141, 130, 0.32), transparent 28%),
+    radial-gradient(ellipse at 82% 18%, rgba(43, 141, 130, 0.3), transparent 38%),
+    radial-gradient(ellipse at 16% 90%, rgba(18, 67, 61, 0.34), transparent 44%),
     var(--ink);
   scroll-margin-top: 90px;
 }
 
 .contact-grid-lines {
-  mask-image: linear-gradient(to bottom, black, transparent);
+  opacity: 0.08;
+  mask-image: linear-gradient(to bottom, black, transparent 88%);
 }
 
 .contact-layout {
