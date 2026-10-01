@@ -13,6 +13,8 @@ The source for [dawitfeleke.com](https://dawitfeleke.com), an editorial portfoli
 
 The site is intentionally framework-free. Structured content lives in `assets/data/content.mjs`; `scripts/build.mjs` renders the static HTML files. Styling and browser behavior live in `style.css` and `assets/js/main.js`.
 
+The visual system uses a light neutral palette, DM Sans typography, a rounded portrait, large project images, and compact navigation. Homepage capabilities expand through native HTML details controls. All case studies, the full experience, photographs, and downloadable documents remain available through the dedicated pages.
+
 ## Develop locally
 
 Node.js 20 or newer is recommended.

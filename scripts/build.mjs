@@ -47,7 +47,7 @@ function head({ title, description, path = "/", image = "/assets/images/dawit-fo
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>${escapeHtml(title)}</title>
   <meta name="description" content="${escapeHtml(description)}">
-  <meta name="theme-color" content="#0b1715">
+  <meta name="theme-color" content="#f3f4f1">
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="canonical" href="${url}">
   <meta property="og:type" content="${type}">
@@ -62,8 +62,8 @@ function head({ title, description, path = "/", image = "/assets/images/dawit-fo
   <meta name="twitter:image" content="${absoluteImage}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css?v=20261001">
   <script type="application/ld+json">${JSON.stringify(person)}</script>`;
 }
 
@@ -80,8 +80,7 @@ function header(active = "") {
   <header class="site-header" data-header>
     <div class="shell header-inner">
       <a class="brand" href="/" aria-label="Dawit Feleke, home">
-        <span class="brand-orbit" aria-hidden="true"><span>DF</span></span>
-        <span><strong>Dawit Feleke</strong><small>Product · Technology · Delivery</small></span>
+        <span><strong>Dawit Feleke</strong><small>Product × Technology × Stories</small></span>
       </a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open navigation">${icon("menu")}</button>
       <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
@@ -120,7 +119,7 @@ function layout({ title, description, path, active, content, image, type, bodyCl
 ${header(active)}
 <main id="main">${content}</main>
 ${footer()}
-<script type="module" src="/assets/js/main.js"></script>
+<script type="module" src="/assets/js/main.js?v=20261001"></script>
 </body>
 </html>`;
 }
@@ -155,9 +154,9 @@ function projectCard(project, variant = "standard") {
 function contactCta() {
   return `<section class="contact-cta">
     <div class="shell contact-cta-inner reveal">
-      <p class="kicker">Start a conversation</p>
-      <h2>Have a project, role or idea<br>worth discussing?</h2>
-      <a class="button button-light" href="mailto:${site.email}">Email Dawit ${icon("external")}</a>
+      <p class="kicker"><span class="status-dot" aria-hidden="true"></span> Open to the next good idea</p>
+      <h2>Let's make<br>something happen.</h2>
+      <a class="button button-dark" href="mailto:${site.email}">Get in touch ${icon("external")}</a>
     </div>
   </section>`;
 }
@@ -168,34 +167,30 @@ function homePage() {
 
   const content = `
   <section class="home-hero">
-    <div class="shell hero-grid">
-      <div class="hero-copy reveal">
-        <p class="kicker light">Addis Ababa · Product, technology and delivery</p>
-        <h1>I build and deliver <em>digital products, systems and stories.</em></h1>
-        <p class="hero-deck">I connect product marketing, technical project delivery and web development to turn complex ideas into work people can understand and use.</p>
-        <div class="hero-actions">
-          <a class="button button-accent" href="#selected-work">View selected work ${icon("arrow")}</a>
-          <a class="button button-quiet" href="/about/">About Dawit</a>
-        </div>
-      </div>
+    <div class="shell hero-stage">
+      <p class="hero-location"><span class="status-dot" aria-hidden="true"></span> Based in Addis Ababa</p>
       <figure class="hero-portrait reveal">
         <picture>
           <source media="(max-width: 720px)" srcset="/assets/images/dawit-portrait-560.jpg">
           <img src="/assets/images/dawit-portrait-960.jpg" width="960" height="1199" alt="Formal portrait of Dawit Feleke" fetchpriority="high">
         </picture>
-        <figcaption><span>Product marketing</span><span>Technical PM</span><span>Web development</span></figcaption>
       </figure>
+      <div class="hero-copy reveal"><p class="kicker">Hello, I'm</p><h1>Dawit Feleke.</h1></div>
+      <a class="hero-contact" href="/contact/">Let's talk ${icon("external")}</a>
     </div>
-    <div class="shell metrics-row reveal" aria-label="Selected career outcomes">
-      <div><strong>2,000+</strong><span>students reached</span></div>
-      <div><strong>30+</strong><span>countries</span></div>
-      <div><strong>4+ years</strong><span>cross-functional delivery</span></div>
+    <div class="shell hero-bottom">
+      <a class="hero-intro" href="#selected-work"><span class="scroll-cue" aria-hidden="true">↓</span><span>I build and deliver digital products, systems and stories.<small>Explore selected work</small></span></a>
+      <div class="metrics-row" aria-label="Selected career outcomes">
+        <div><strong>2,000+</strong><span>students reached</span></div>
+        <div><strong>30+</strong><span>countries</span></div>
+        <div><strong>4+ yrs</strong><span>across disciplines</span></div>
+      </div>
     </div>
   </section>
 
   <section class="section selected-work" id="selected-work">
     <div class="shell">
-      ${sectionHead("01 · Selected work", "Evidence over <em>explanation.</em>", "Five projects that show how I connect technology, delivery, marketing and production.", { label: "View all work", href: "/work/" })}
+      ${sectionHead("/ selected work", "Ideas brought to life.", "A few projects across technology, marketing and media.", { label: "All 10 projects", href: "/work/" })}
       <div class="featured-grid">
         ${featured.map((project, index) => projectCard(project, index === 0 ? "feature" : index === 1 || index === 2 ? "wide" : "standard")).join("")}
       </div>
@@ -204,38 +199,38 @@ function homePage() {
 
   <section class="section home-about">
     <div class="shell split-intro reveal">
-      <p class="kicker">02 · Profile</p>
+      <p class="kicker">/ about</p>
       <div>
-        <h2>One practice,<br><em>several disciplines.</em></h2>
-        <p>I work where technology, communication, and delivery meet. My background spans AI operations, product development, entrepreneurship, marketing leadership, and media production—connected by one habit: turning ambiguity into useful, finished work.</p>
-        <a class="text-link" href="/about/">Read the full story ${icon("arrow")}</a>
+        <h2>I connect the idea,<br>the people and the delivery.</h2>
+        <p>From building education platforms to leading marketing teams and filming documentaries, I help turn a shared idea into something people can use, understand or experience.</p>
+        <a class="text-link" href="/about/">More about me ${icon("arrow")}</a>
       </div>
     </div>
   </section>
 
   <section class="section capabilities-preview">
     <div class="shell">
-      ${sectionHead("03 · Capabilities", "From idea to <em>adoption.</em>", "Four connected areas, organized around outcomes rather than software badges.")}
-      <div class="capability-grid">
-        ${capabilities.map((item) => `<article class="capability-card reveal"><span>${item.number}</span><h3>${item.title}</h3><p>${item.copy}</p><ul>${item.items.slice(0, 3).map((entry) => `<li>${entry}</li>`).join("")}</ul></article>`).join("")}
+      ${sectionHead("/ what I bring", "Different skills. Shared purpose.")}
+      <div class="dial-grid">
+        ${capabilities.map((item) => `<details class="capability-dial"><summary><span class="dial-disc" aria-hidden="true"><span>${item.number}</span></span><span class="dial-title">${item.title}</span><span class="dial-cue">Explore <span aria-hidden="true">+</span></span></summary><div class="dial-content"><p>${item.copy}</p><ul>${item.items.slice(0, 3).map((entry) => `<li>${entry}</li>`).join("")}</ul></div></details>`).join("")}
       </div>
     </div>
   </section>
 
   <section class="section experience-preview">
     <div class="shell">
-      ${sectionHead("04 · Selected experience", "Recent chapters.", "A quick view of current and recent roles. The complete career history lives on the About page.", { label: "Full experience", href: "/about/#experience" })}
+      ${sectionHead("/ experience", "Where I've been.", "", { label: "Full experience", href: "/about/#experience" })}
       <div class="experience-list">
-        ${selectedExperience.map((item) => `<article class="experience-row reveal"><time>${item.period}</time><div><h3>${item.company}</h3><p>${item.role}</p></div><p>${item.summary}</p></article>`).join("")}
+        ${selectedExperience.map((item) => `<article class="experience-row reveal"><time>${item.period}</time><div><h3>${item.company}</h3><p>${item.role}</p></div></article>`).join("")}
       </div>
     </div>
   </section>
 
   <section class="section notes-preview">
     <div class="shell">
-      ${sectionHead("05 · Field notes", "The work beyond the <em>screen.</em>", "Documentary production, travel, sport, and the visual practice that shapes how I observe.", { label: "Open the archive", href: "/notes/" })}
+      ${sectionHead("/ field notes", "Away from the desk.", "People, places and moments from the work.", { label: "View all photos", href: "/notes/" })}
       <div class="notes-strip">
-        ${notes.slice(0, 4).map((note, index) => `<figure class="note-tile reveal note-tile-${index + 1}"><img src="${note.src}" alt="${escapeHtml(note.alt)}" loading="lazy" decoding="async"><figcaption><span>${note.label}</span><strong>${note.title}</strong></figcaption></figure>`).join("")}
+        ${notes.slice(0, 4).map((note, index) => `<a class="note-preview-link" href="/notes/" aria-label="See ${escapeHtml(note.title)} in field notes"><figure class="note-tile reveal note-tile-${index + 1}"><img src="${note.src}" alt="${escapeHtml(note.alt)}" loading="lazy" decoding="async"><figcaption><span>${note.label}</span><strong>${note.title}</strong></figcaption></figure></a>`).join("")}
       </div>
     </div>
   </section>
@@ -256,8 +251,8 @@ function workPage() {
   <section class="page-hero page-hero-work">
     <div class="shell page-hero-grid reveal">
       <p class="kicker light">Work archive</p>
-      <h1>Products, systems,<br><em>campaigns and stories.</em></h1>
-      <p>Selected work across technology, education, AI operations, marketing, entrepreneurship, documentary production and media systems.</p>
+      <h1>The work.</h1>
+      <p>Products, systems, campaigns and stories. Pick an area to explore, or browse the full collection.</p>
     </div>
   </section>
   <section class="section work-archive">
@@ -437,7 +432,7 @@ function aboutPage() {
 
   <section class="section about-capabilities">
     <div class="shell">
-      ${sectionHead("Capability map", "Connected skills, <em>not a keyword cloud.</em>")}
+      ${sectionHead("Capabilities", "What I bring to the work.")}
       <div class="capability-grid detailed">
         ${capabilities.map((item) => `<article class="capability-card reveal"><span>${item.number}</span><h3>${item.title}</h3><p>${item.copy}</p><ul>${item.items.map((entry) => `<li>${entry}</li>`).join("")}</ul></article>`).join("")}
       </div>
@@ -479,7 +474,7 @@ function notesPage() {
   <dialog class="lightbox" data-lightbox aria-label="Expanded field note">
     <button type="button" class="lightbox-close" data-lightbox-close aria-label="Close image">${icon("close")}</button>
     <button type="button" class="lightbox-nav lightbox-prev" data-lightbox-prev aria-label="Previous image">←</button>
-    <figure><img src="" alt="" data-lightbox-image><figcaption><small data-lightbox-label></small><strong data-lightbox-title></strong></figcaption></figure>
+    <figure><img src="${notes[0].src}" alt="${escapeHtml(notes[0].alt)}" loading="lazy" data-lightbox-image><figcaption><small data-lightbox-label></small><strong data-lightbox-title></strong></figcaption></figure>
     <button type="button" class="lightbox-nav lightbox-next" data-lightbox-next aria-label="Next image">→</button>
   </dialog>
   ${contactCta()}`;
@@ -500,7 +495,7 @@ function contactPage() {
     <div class="shell contact-page-grid reveal">
       <div>
         <p class="kicker light">Contact</p>
-        <h1>Let's make something<br><em>useful and memorable.</em></h1>
+        <h1>Let's talk.</h1>
         <p class="page-lead">I'm open to product marketing, technical project management, technology operations, web development, and selected media production work.</p>
       </div>
       <div class="contact-panel">

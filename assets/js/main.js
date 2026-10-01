@@ -26,6 +26,25 @@ navToggle?.addEventListener("click", () => {
 
 navigation?.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeNavigation));
 
+window.matchMedia("(min-width: 721px)").addEventListener("change", (event) => {
+  if (event.matches) closeNavigation();
+});
+
+document.addEventListener("keydown", (event) => {
+  if (navToggle?.getAttribute("aria-expanded") !== "true") return;
+  const navLinks = Array.from(navigation.querySelectorAll("a"));
+  const lastLink = navLinks.at(-1);
+  if (event.key === "Escape") navToggle.focus();
+  if (event.key !== "Tab") return;
+  if (event.shiftKey && document.activeElement === navToggle) {
+    event.preventDefault();
+    lastLink?.focus();
+  } else if (!event.shiftKey && document.activeElement === lastLink) {
+    event.preventDefault();
+    navToggle.focus();
+  }
+});
+
 function updateHeader() {
   header?.classList.toggle("is-scrolled", window.scrollY > 24);
 }
