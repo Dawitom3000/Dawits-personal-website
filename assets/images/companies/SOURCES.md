@@ -20,4 +20,4 @@ Retrieved October 1, 2026. Marks identify organizations in Dawit's existing work
 
 Headway Travel Firm, Frame by Frame, and Carlos Thornten Sports Enrichment Center currently use typeset name labels. These are deliberately not presented as verified graphic logos. Replace the null `logo` values in `assets/data/content.mjs` once official files are provided.
 
-The scope excludes venues, audiences, collaborators' affiliations, and software vendors mentioned in case studies, because those references do not establish that Dawit worked for them.
+These additional logos were supplied specifically for this strip. Other venues, audience or customer brands, collaborator affiliations, and software vendors mentioned incidentally in case studies are not included as companies Dawit worked with.
