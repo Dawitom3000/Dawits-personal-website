@@ -9,9 +9,6 @@ Retrieved October 1, 2026. Marks identify organizations in Dawit's existing work
 | future-quest.png | https://quest-future.com/images/branding/icon-dark.png |
 | ethioballers.jpg | Profile logo on https://t.me/s/coachcarlosethioballers |
 | wsg.svg | Navbar SVG from https://www.wsg.pl/; white original displayed in charcoal with CSS |
-| ride.png | https://ride8294.com/wp-content/uploads/2023/12/ride@2x.png |
-| beu.webp | App icon from the publisher's https://apps.apple.com/us/app/beu-delivery/id1577071426 listing |
-| solar23.png | https://static.wixstatic.com/media/f01157_5544720e2b844eeda0cfe5db0b4f8012~mv2.png, referenced by Pinnacle AI's company strip |
 | ../bana/bana-logo.jpg | Existing user-provided repository asset |
 | next-level.png | User-provided brand image |
 | ethiopian-diaspora-service.png | User-provided brand image |

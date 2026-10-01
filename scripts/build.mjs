@@ -63,7 +63,7 @@ function head({ title, description, path = "/", image = "/assets/images/dawit-fo
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/style.css?v=20261001-color-logos">
+  <link rel="stylesheet" href="/style.css?v=20261001-compact-strip">
   <script type="application/ld+json">${JSON.stringify(person)}</script>`;
 }
 
@@ -119,7 +119,7 @@ function layout({ title, description, path, active, content, image, type, bodyCl
 ${header(active)}
 <main id="main">${content}</main>
 ${footer()}
-<script type="module" src="/assets/js/main.js?v=20261001-logos"></script>
+<script type="module" src="/assets/js/main.js?v=20261001-compact-strip"></script>
 </body>
 </html>`;
 }
@@ -166,7 +166,6 @@ function companyStrip() {
     <div class="shell">
       <div class="company-heading">
         <h2 id="company-heading">Companies & organizations I've worked with</h2>
-        <button class="company-pause" type="button" data-company-pause aria-controls="company-logos" hidden>Pause animation</button>
       </div>
       <div class="company-viewport" id="company-logos" tabindex="0" role="region" aria-label="Companies and organizations; scroll horizontally to explore">
         <div class="company-track">

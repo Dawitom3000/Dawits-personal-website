@@ -9,7 +9,6 @@ const companyStrip = document.querySelector("[data-company-strip]");
 if (companyStrip) {
   const track = companyStrip.querySelector(".company-track");
   const list = companyStrip.querySelector(".company-list");
-  const pauseButton = companyStrip.querySelector("[data-company-pause]");
   const companyViewport = companyStrip.querySelector(".company-viewport");
   const motionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
   // The second copy makes the loop seamless; assistive technology reads one list.
@@ -22,13 +21,8 @@ if (companyStrip) {
     const animate = !motionPreference.matches;
     companyStrip.classList.toggle("is-animated", animate);
     duplicate.hidden = !animate;
-    pauseButton.hidden = !animate;
   }
 
-  pauseButton.addEventListener("click", () => {
-    const paused = companyStrip.classList.toggle("is-paused");
-    pauseButton.textContent = paused ? "Resume animation" : "Pause animation";
-  });
   companyViewport.addEventListener("blur", () => {
     if (!motionPreference.matches) companyViewport.scrollLeft = 0;
   });
