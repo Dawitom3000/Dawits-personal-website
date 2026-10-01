@@ -63,7 +63,7 @@ function head({ title, description, path = "/", image = "/assets/images/dawit-fo
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/style.css?v=20261001-logos">
+  <link rel="stylesheet" href="/style.css?v=20261001-color-logos">
   <script type="application/ld+json">${JSON.stringify(person)}</script>`;
 }
 
@@ -172,7 +172,7 @@ function companyStrip() {
         <div class="company-track">
           <ul class="company-list">${companies.map((company) => `<li class="company-item${company.logo ? "" : " company-item-text"}" aria-label="${escapeHtml(company.name)}">
             ${company.logo
-              ? `<img class="company-logo${company.wide ? " company-logo-wide" : ""}" src="${company.logo}" width="140" height="48" alt="" decoding="async"><span>${escapeHtml(company.display || company.name)}</span>`
+              ? `<img class="company-logo${company.wide ? " company-logo-wide" : ""}" src="${company.logo}" width="140" height="48" alt="" decoding="async"><span>${escapeHtml(company.display || company.name)}${company.detail ? `<small>${escapeHtml(company.detail)}</small>` : ""}</span>`
               : `<strong>${escapeHtml(company.display)}</strong><span>${escapeHtml(company.detail)}</span>`}
           </li>`).join("")}</ul>
         </div>

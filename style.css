@@ -92,10 +92,11 @@ em { font-style: normal; }
 .company-track { display: flex; width: max-content; }
 .company-list { display: flex; flex-shrink: 0; margin: 0; padding: 0; list-style: none; }
 .company-item { display: flex; flex-direction: column; align-items: center; justify-content: center; flex: 0 0 210px; width: 210px; min-height: 100px; gap: 12px; padding: 12px 20px; text-align: center; }
-.company-logo { width: 64px; height: 48px; object-fit: contain; filter: grayscale(1); opacity: .8; }
+.company-logo { width: 64px; height: 48px; object-fit: contain; }
 .company-logo-wide { width: 135px; }
-.company-logo[src$="/wsg.svg"] { filter: brightness(0); }
+.company-logo[src$="/wsg.svg"] { padding: 6px; border-radius: 8px; background: var(--ink); }
 .company-item > span { font-size: 11px; color: var(--muted); line-height: 1.4; }
+.company-item > span > small { display: block; font-size: 10px; }
 .company-item-text { gap: 4px; }
 .company-item-text strong { font-size: 21px; line-height: 1.2; font-weight: 600; letter-spacing: -.045em; }
 .company-strip.is-animated .company-viewport { overflow: clip; mask-image: linear-gradient(to right, transparent, #000 4%, #000 96%, transparent); }

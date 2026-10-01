@@ -442,14 +442,17 @@ export const companies = [
   { name: "Future Quest", logo: "/assets/images/companies/future-quest.png" },
   { name: "EthioBallers", logo: "/assets/images/companies/ethioballers.jpg" },
   { name: "Bana Records", logo: "/assets/images/bana/bana-logo.jpg" },
-  { name: "Next Level Marketing and Communications", display: "Next Level", detail: "Marketing & Communications", logo: null },
+  { name: "Next Level Marketing and Communications", display: "Next Level", detail: "Marketing & Communications", logo: "/assets/images/companies/next-level.png", wide: true },
   { name: "Headway Travel Firm", display: "Headway", detail: "Travel Firm", logo: null },
   { name: "Frame by Frame", display: "Frame by Frame", detail: "Media production", logo: null },
   { name: "Carlos Thornten Sports Enrichment Center", display: "Carlos Thornten", detail: "Sports Enrichment Center", logo: null },
   { name: "Wyzsza Szkola Gospodarki", display: "WSG · Bydgoszcz, Poland", logo: "/assets/images/companies/wsg.svg", wide: true },
   { name: "RIDE", logo: "/assets/images/companies/ride.png", wide: true },
   { name: "beU delivery", logo: "/assets/images/companies/beu.webp" },
-  { name: "Solar 23", logo: "/assets/images/companies/solar23.png", wide: true }
+  { name: "Solar 23", logo: "/assets/images/companies/solar23.png", wide: true },
+  { name: "Ethiopian Diaspora Service", logo: "/assets/images/companies/ethiopian-diaspora-service.png" },
+  { name: "U.S. Embassy in Ethiopia", logo: "/assets/images/companies/us-embassy.png" },
+  { name: "Cambridge Academy", logo: "/assets/images/companies/cambridge-academy.jpg" }
 ];
 
 export const capabilities = [
