@@ -5,6 +5,37 @@ const header = document.querySelector("[data-header]");
 const navToggle = document.querySelector(".nav-toggle");
 const navigation = document.getElementById("site-nav");
 
+const companyStrip = document.querySelector("[data-company-strip]");
+if (companyStrip) {
+  const track = companyStrip.querySelector(".company-track");
+  const list = companyStrip.querySelector(".company-list");
+  const pauseButton = companyStrip.querySelector("[data-company-pause]");
+  const companyViewport = companyStrip.querySelector(".company-viewport");
+  const motionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
+  // The second copy makes the loop seamless; assistive technology reads one list.
+  const duplicate = list.cloneNode(true);
+  duplicate.setAttribute("aria-hidden", "true");
+  duplicate.inert = true;
+  track.append(duplicate);
+
+  function updateCompanyMotion() {
+    const animate = !motionPreference.matches;
+    companyStrip.classList.toggle("is-animated", animate);
+    duplicate.hidden = !animate;
+    pauseButton.hidden = !animate;
+  }
+
+  pauseButton.addEventListener("click", () => {
+    const paused = companyStrip.classList.toggle("is-paused");
+    pauseButton.textContent = paused ? "Resume animation" : "Pause animation";
+  });
+  companyViewport.addEventListener("blur", () => {
+    if (!motionPreference.matches) companyViewport.scrollLeft = 0;
+  });
+  motionPreference.addEventListener("change", updateCompanyMotion);
+  updateCompanyMotion();
+}
+
 document.querySelectorAll("[data-year]").forEach((item) => {
   item.textContent = new Date().getFullYear();
 });

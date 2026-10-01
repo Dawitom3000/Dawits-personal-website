@@ -15,6 +15,8 @@ The site is intentionally framework-free. Structured content lives in `assets/da
 
 The visual system uses a light neutral palette, DM Sans typography, a rounded portrait, large project images, and compact navigation. Homepage capabilities expand through native HTML details controls. All case studies, the full experience, photographs, and downloadable documents remain available through the dedicated pages.
 
+The homepage company strip includes the nine organizations in the experience history, Frame by Frame, and the three clients named in the Pinnacle AI case study. Its `companies` data lives in `assets/data/content.mjs`. Logos are served locally; entries without verified logo files render as text. See `assets/images/companies/SOURCES.md` for provenance and outstanding assets. The loop has a pause/resume control, pauses on hover, and becomes a single scrollable list on keyboard focus, without JavaScript, or with reduced motion enabled.
+
 ## Develop locally
 
 Node.js 20 or newer is recommended.

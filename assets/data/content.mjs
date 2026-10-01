@@ -434,6 +434,24 @@ export const experience = [
   { period: "2019–2021", role: "Group Leader & Project Coordinator", company: "Wyzsza Szkola Gospodarki", summary: "Led a multicultural team through community health outreach work in Poland." }
 ];
 
+// Employers, ventures, independent clients, and the three clients named in the
+// Pinnacle case study. Null logos deliberately render as names, not invented marks.
+export const companies = [
+  { name: "Pinnacle AI", logo: "/assets/images/companies/pinnacle-ai.svg" },
+  { name: "Eagle Point AI", logo: "/assets/images/companies/eagle-point.jpg" },
+  { name: "Future Quest", logo: "/assets/images/companies/future-quest.png" },
+  { name: "EthioBallers", logo: "/assets/images/companies/ethioballers.jpg" },
+  { name: "Bana Records", logo: "/assets/images/bana/bana-logo.jpg" },
+  { name: "Next Level Marketing and Communications", display: "Next Level", detail: "Marketing & Communications", logo: null },
+  { name: "Headway Travel Firm", display: "Headway", detail: "Travel Firm", logo: null },
+  { name: "Frame by Frame", display: "Frame by Frame", detail: "Media production", logo: null },
+  { name: "Carlos Thornten Sports Enrichment Center", display: "Carlos Thornten", detail: "Sports Enrichment Center", logo: null },
+  { name: "Wyzsza Szkola Gospodarki", display: "WSG · Bydgoszcz, Poland", logo: "/assets/images/companies/wsg.svg", wide: true },
+  { name: "RIDE", logo: "/assets/images/companies/ride.png", wide: true },
+  { name: "beU delivery", logo: "/assets/images/companies/beu.webp" },
+  { name: "Solar 23", logo: "/assets/images/companies/solar23.png", wide: true }
+];
+
 export const capabilities = [
   { number: "01", title: "Product & Strategy", copy: "Translate complex offers into clear product stories, useful experiences, and plans people can act on.", items: ["Product positioning", "Value propositions", "Go-to-market support", "Technical storytelling", "Service design"] },
   { number: "02", title: "Technology & Delivery", copy: "Move digital work from ambiguous brief to deployed system with visible ownership and steady execution.", items: ["Technical project delivery", "AI operations", "Web systems", "Agile and Kanban", "Stakeholder alignment"] },

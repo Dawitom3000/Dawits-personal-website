@@ -1,7 +1,7 @@
 import { mkdir, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { capabilities, experience, notes, projects, site } from "../assets/data/content.mjs";
+import { capabilities, companies, experience, notes, projects, site } from "../assets/data/content.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const origin = "https://dawitfeleke.com";
@@ -63,7 +63,7 @@ function head({ title, description, path = "/", image = "/assets/images/dawit-fo
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/style.css?v=20261001">
+  <link rel="stylesheet" href="/style.css?v=20261001-logos">
   <script type="application/ld+json">${JSON.stringify(person)}</script>`;
 }
 
@@ -119,7 +119,7 @@ function layout({ title, description, path, active, content, image, type, bodyCl
 ${header(active)}
 <main id="main">${content}</main>
 ${footer()}
-<script type="module" src="/assets/js/main.js?v=20261001"></script>
+<script type="module" src="/assets/js/main.js?v=20261001-logos"></script>
 </body>
 </html>`;
 }
@@ -161,6 +161,26 @@ function contactCta() {
   </section>`;
 }
 
+function companyStrip() {
+  return `<section class="company-strip" aria-labelledby="company-heading" data-company-strip>
+    <div class="shell">
+      <div class="company-heading">
+        <h2 id="company-heading">Companies & organizations I've worked with</h2>
+        <button class="company-pause" type="button" data-company-pause aria-controls="company-logos" hidden>Pause animation</button>
+      </div>
+      <div class="company-viewport" id="company-logos" tabindex="0" role="region" aria-label="Companies and organizations; scroll horizontally to explore">
+        <div class="company-track">
+          <ul class="company-list">${companies.map((company) => `<li class="company-item${company.logo ? "" : " company-item-text"}" aria-label="${escapeHtml(company.name)}">
+            ${company.logo
+              ? `<img class="company-logo${company.wide ? " company-logo-wide" : ""}" src="${company.logo}" width="140" height="48" alt="" decoding="async"><span>${escapeHtml(company.display || company.name)}</span>`
+              : `<strong>${escapeHtml(company.display)}</strong><span>${escapeHtml(company.detail)}</span>`}
+          </li>`).join("")}</ul>
+        </div>
+      </div>
+    </div>
+  </section>`;
+}
+
 function homePage() {
   const featured = projects.filter((project) => project.featured).sort((a, b) => a.featureRank - b.featureRank);
   const selectedExperience = experience.slice(0, 3);
@@ -187,6 +207,8 @@ function homePage() {
       </div>
     </div>
   </section>
+
+  ${companyStrip()}
 
   <section class="section selected-work" id="selected-work">
     <div class="shell">

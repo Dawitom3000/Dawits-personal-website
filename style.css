@@ -82,6 +82,43 @@ em { font-style: normal; }
 .metrics-row strong { display: block; font-size: clamp(24px, 2.5vw, 34px); font-weight: 400; letter-spacing: -.05em; line-height: 1.2; white-space: nowrap; }
 .metrics-row span { display: block; font-size: 11px; color: var(--muted); margin-top: 5px; }
 
+/* One continuous loop, with a scrollable single list when motion is disabled. */
+.company-strip { padding-block: 30px 20px; border-bottom: 1px solid var(--line); }
+.company-heading { display: flex; align-items: center; justify-content: space-between; gap: 18px; min-height: 44px; }
+.company-heading h2 { font-size: 12px; line-height: 1.5; letter-spacing: .01em; font-weight: 400; color: var(--muted); text-wrap: pretty; }
+.company-pause { flex-shrink: 0; min-height: 44px; border: 0; border-radius: 999px; padding: 8px 14px; background: var(--paper); font-size: 11px; }
+.company-pause:hover { background: var(--sage); }
+.company-viewport { overflow-x: auto; padding-block: 10px; scrollbar-width: thin; }
+.company-track { display: flex; width: max-content; }
+.company-list { display: flex; flex-shrink: 0; margin: 0; padding: 0; list-style: none; }
+.company-item { display: flex; flex-direction: column; align-items: center; justify-content: center; flex: 0 0 210px; width: 210px; min-height: 100px; gap: 12px; padding: 12px 20px; text-align: center; }
+.company-logo { width: 64px; height: 48px; object-fit: contain; filter: grayscale(1); opacity: .8; }
+.company-logo-wide { width: 135px; }
+.company-logo[src$="/wsg.svg"] { filter: brightness(0); }
+.company-item > span { font-size: 11px; color: var(--muted); line-height: 1.4; }
+.company-item-text { gap: 4px; }
+.company-item-text strong { font-size: 21px; line-height: 1.2; font-weight: 600; letter-spacing: -.045em; }
+.company-strip.is-animated .company-viewport { overflow: clip; mask-image: linear-gradient(to right, transparent, #000 4%, #000 96%, transparent); }
+.company-strip.is-animated .company-track { animation: company-scroll 75s linear infinite; }
+.company-strip.is-paused .company-track,
+.company-viewport:hover .company-track,
+.company-viewport:focus-within .company-track { animation-play-state: paused; }
+.company-strip.is-animated .company-viewport:focus { overflow-x: auto; mask-image: none; }
+.company-viewport:focus .company-track { animation: none; }
+.company-viewport:focus .company-list[aria-hidden="true"] { display: none; }
+@keyframes company-scroll { to { transform: translateX(-50%); } }
+@media (max-width: 720px) {
+  .company-strip { padding-block: 22px 14px; }
+  .company-heading { gap: 12px; }
+  .company-heading h2 { max-width: 190px; }
+  .company-item { flex-basis: 180px; width: 180px; padding-inline: 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .company-strip.is-animated .company-track { animation: none; }
+  .company-strip.is-animated .company-viewport { overflow-x: auto; mask-image: none; }
+  .company-list[aria-hidden="true"], .company-pause { display: none; }
+}
+
 .section { padding-block: 90px; }
 .section-head { display: grid; grid-template-columns: 1fr auto; gap: 18px 45px; align-items: end; margin-bottom: 44px; }
 .section-head > div { grid-column: 1; }
