@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>HR management API | Dawit A. Feleke</title>
+<meta content="A backend for employee records, departments, roles, leave requests, and organization workflows." name="description"/>
+<meta content="#f3f4f1" name="theme-color"/>
+<link href="../../assets/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="https://dawitfeleke.com/work/hr-management/" rel="canonical"/>
+<meta content="article" property="og:type"/>
+<meta content="HR management API | Dawit A. Feleke" property="og:title"/>
+<meta content="A backend for employee records, departments, roles, leave requests, and organization workflows." property="og:description"/>
+<meta content="https://dawitfeleke.com/work/hr-management/" property="og:url"/>
+<meta content="https://dawitfeleke.com/assets/images/dawit-portrait-960.jpg" property="og:image"/>
+<meta content="Dawit A. Feleke" property="og:site_name"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="HR management API | Dawit A. Feleke" name="twitter:title"/>
+<meta content="A backend for employee records, departments, roles, leave requests, and organization workflows." name="twitter:description"/>
+<meta content="https://dawitfeleke.com/assets/images/dawit-portrait-960.jpg" name="twitter:image"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="../../style.css?v=20261013-content" rel="stylesheet"/>
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Dawit Abebe Feleke", "alternateName": "Dawit A. Feleke", "url": "https://dawitfeleke.com", "sameAs": ["https://github.com/Dawitom3000", "https://www.linkedin.com/in/dawit-feleke-991b0a288"]}</script></head>
+<body class="case-page">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header" data-header="">
+<div class="shell header-inner">
+<a aria-label="Dawit A. Feleke, home" class="brand" href="../../">
+<span><strong>Dawit A. Feleke</strong><small>Web × Systems</small></span>
+</a>
+<button aria-controls="site-nav" aria-expanded="false" aria-label="Open navigation" class="nav-toggle" type="button"><span></span><span></span></button>
+<nav aria-label="Primary navigation" class="site-nav" id="site-nav">
+<a aria-current="page" href="../../work/">Projects</a><a href="../../about/">About</a><a href="../../notes/">More</a><a href="../../contact/">Contact</a>
+<a class="nav-cv" download="Dawit_Feleke_CV.pdf" href="../../assets/Dawit_Feleke_CV.pdf" rel="noopener">Download CV <svg aria-hidden="true" viewbox="0 0 20 20"><path d="M7 4h9v9M16 4 5 15"></path></svg></a>
+</nav>
+</div>
+</header>
+<main id="main" tabindex="-1"><article class="case-study"><header class="case-header">
+<div class="shell case-header-grid reveal">
+<div>
+<a class="back-link" href="../../work/">Work archive /</a>
+<p class="kicker light">Backend application</p>
+<h1>HR management API</h1>
+<p class="case-lead">A backend for employee records, departments, roles, leave requests, and organization workflows.</p>
+</div>
+<dl class="project-meta"><div><dt>Role</dt><dd>Co-developer</dd></div><div><dt>Period</dt><dd>Project dates not confirmed</dd></div><div><dt>Organization</dt><dd>Team application project</dd></div><div><dt>Status</dt><dd>Source available · deployment unverified</dd></div></dl>
+</div>
+</header><div class="shell case-hero reveal"><div class="case-type-cover"><span>Backend application</span><strong>HR API</strong><small>Team application project</small></div></div><section class="case-section case-section-tint"><div class="shell case-copy-grid reveal"><p class="kicker">01 · My contribution</p><p class="role-statement">I co-developed this application with team members. The public repository makes the backend available for review; the descriptions below refer to the team’s implementation, with individual module ownership still to be specified.</p></div></section><section class="case-section"><div class="shell case-copy-grid reveal"><p class="kicker">02 · Users &amp; workflows</p><div class="long-copy"><p>The backend supports HR and administrative work around employees, departments, roles, and leave. Its source also includes student, teaching, project, and training records.</p></div></div></section><section class="case-section case-section-tint"><div class="shell case-copy-grid reveal"><p class="kicker">03 · API &amp; data model</p><div class="long-copy"><ul><li>Express routes, controllers, and services separate HTTP handling from application operations.</li><li>Sequelize associations connect employees to departments, users to roles, and roles to permissions.</li><li>JWT authentication loads the user and permissions; password-change gating limits access when a reset is required.</li><li>Leave services support filtering, pagination, employee lookup, balance checks, and status updates.</li><li>Joi validators and error responses are present in the API; Swagger dependencies and Docker configuration are included.</li></ul></div></div></section><section class="case-section"><div class="shell case-copy-grid reveal"><p class="kicker">04 · Implementation decision: permissions as data</p><div class="long-copy"><p>The source represents roles and permissions through a many-to-many relationship rather than only hard-coded role names. Authentication loads that permission set for downstream authorization. This supports granular access, while introducing additional policy and data-maintenance work.</p><p>This is an observed implementation choice, not a claim that I independently designed the authorization layer.</p></div></div></section><section class="case-section case-section-tint"><div class="shell case-copy-grid reveal"><p class="kicker">05 · Testing &amp; delivery evidence</p><div class="long-copy"><p>The repository includes API and database verification scripts plus Docker configuration. No public production deployment, reliability metric, or completed test run is claimed here. This is a backend application; an associated mobile client has not been verified.</p></div></div></section><section class="case-section case-details"><div class="shell details-grid reveal"><div><p class="kicker">Verified tools &amp; methods</p><ul class="tool-list"><li>JavaScript</li><li>Node.js</li><li>Express</li><li>PostgreSQL</li><li>Sequelize</li><li>Joi</li></ul></div><div><p class="kicker">Related links &amp; evidence</p><div class="related-links"><a href="https://github.com/Dawitom3000/HR-managment-system-Backtend">Review repository <svg aria-hidden="true" viewbox="0 0 20 20"><path d="M7 4h9v9M16 4 5 15"></path></svg></a><a href="https://github.com/Dawitom3000/HR-managment-system-Backtend/blob/main/src/middleware/auth.js?plain=1">Authentication implementation <svg aria-hidden="true" viewbox="0 0 20 20"><path d="M7 4h9v9M16 4 5 15"></path></svg></a></div><p class="kicker">Co-development confirmed by Dawit. Stack and features verified in package.json, routes, models, middleware, validators, and services. Individual ownership and deployment dates remain unconfirmed.</p></div></div></section><a class="next-project" href="../../work/frame-by-frame/"><span class="shell"><small>Next development project</small><strong>Frame by Frame</strong><svg aria-hidden="true" viewbox="0 0 20 20"><path d="M4 10h11M11 5l5 5-5 5"></path></svg></span></a></article></main>
+<footer class="site-footer">
+<div class="shell footer-grid">
+<div>
+<p class="footer-name">Dawit A. Feleke</p>
+<p class="footer-note">Developing web applications, business systems, and websites from Addis Ababa.</p>
+</div>
+<div aria-label="Contact and professional links" class="footer-links">
+<a href="mailto:Felekedawit11@icloud.com">Email</a>
+<a href="https://www.linkedin.com/in/dawit-feleke-991b0a288" rel="noopener" target="_blank">LinkedIn</a>
+<a href="https://github.com/Dawitom3000" rel="noopener" target="_blank">GitHub</a>
+<a href="../../assets/Dawit_Feleke_CV.pdf" rel="noopener" target="_blank">CV</a>
+</div>
+<p class="footer-meta">Addis Ababa, Ethiopia<br/>© <span data-year=""></span> Dawit A. Feleke</p>
+</div>
+</footer>
+<script src="../../assets/js/main.js?v=20261013-content" type="module"></script>
+</body>
+</html>
